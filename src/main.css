@@ -1,3 +1,7 @@
 body {
-    background-color: red;
+    background: linear-gradient(to bottom, white, black);
+}
+
+::placeholder {
+    color: gray;
 }
