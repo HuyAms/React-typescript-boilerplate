@@ -1,6 +1,7 @@
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const webpack = require('webpack');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -37,6 +38,8 @@ module.exports = merge(common, {
 
     new HtmlWebpackPlugin({
       template: "./src/index.html"
-    })
+    }),
+
+    new webpack.HotModuleReplacementPlugin()
   ]
 });
