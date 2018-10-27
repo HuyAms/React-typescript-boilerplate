@@ -15,8 +15,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        use: 'awesome-typescript-loader',
+        test: /\.(ts|js)x?$/,
+        use: 'babel-loader',
         exclude: /node_modules/
       },
       {
@@ -27,7 +27,7 @@ module.exports = {
 
   plugins: [
       new CleanWebpackPlugin(['dist'], {
-        root: path.join(__dirname, '..')
+        root: path.join(__dirname)
       }),
   ]
 }

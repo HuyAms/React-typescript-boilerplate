@@ -7,7 +7,7 @@ const common = require('./webpack.common');
 module.exports = merge(common, {
   mode: 'development',
 
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
 
   devServer: {
     contentBase: '../dist',
@@ -17,7 +17,7 @@ module.exports = merge(common, {
   },
 
   output: {
-    filename: "bundle.js",
+    filename: "[name].js",
     chunkFilename: '[name].chunk.js',
     publicPath: "/"
   },
