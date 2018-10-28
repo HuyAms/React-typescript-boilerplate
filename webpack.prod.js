@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const path = require('path');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -16,22 +16,28 @@ module.exports = merge(common, {
   module: {
     rules: [
       {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader",  "postcss-loader"]
+        test: /\.(?:sa|sc|c)ss$/,
+        use: [MiniCssExtractPlugin.loader, "css-loader",  "postcss-loader", "sass-loader"]
       }
     ]
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[name].css'
+      filename: 'style.[contenthash].css'
     }),
+
+    new OptimizeCssAssetsPlugin(),
 
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       minify: {
-        removeComments: true,
         collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true
       }
     })
   ]
