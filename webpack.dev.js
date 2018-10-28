@@ -1,5 +1,5 @@
 const merge = require('webpack-merge');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const common = require('./webpack.common');
@@ -13,33 +13,44 @@ module.exports = merge(common, {
     contentBase: '../dist',
     port: 8000,
     open: true,
-    overlay: true
+    overlay: true,
   },
 
   output: {
-    filename: "[name].js",
+    filename: '[name].js',
     chunkFilename: '[name].chunk.js',
-    publicPath: "/"
+    publicPath: '/',
   },
 
   module: {
     rules: [
       {
         test: /\.(?:sa|sc|c)ss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
-      }
-    ]
+        use: [
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              modules: true,
+              localIdentName: '[path][name]__[local]--[hash:base64:5]',
+            },
+          },
+          'sass-loader',
+        ],
+      },
+    ],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'style.[name].css'
+      filename: 'style.[name].css',
     }),
 
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: './src/index.html',
     }),
 
-    new webpack.HotModuleReplacementPlugin()
-  ]
+    new webpack.HotModuleReplacementPlugin(),
+  ],
 });

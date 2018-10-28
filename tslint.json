@@ -4,7 +4,7 @@
   "jsRules": {},
   "rules": {
     "member-access": false,
-    "quotemark": [true, "single"],
+    "quotemark": [true, "double"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
     "interface-name": false,

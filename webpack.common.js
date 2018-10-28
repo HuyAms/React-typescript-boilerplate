@@ -16,7 +16,19 @@ module.exports = {
     rules: [
       {
         test: /\.(ts|js)x?$/,
-        use: ['babel-loader', 'tslint-loader'],
+        use: ['babel-loader'],
+        exclude: /node_modules/
+      },
+      {
+        enforce: 'pre',
+        test: /\.(ts|js)x?$/,
+        use: {
+          loader: 'tslint-loader',
+          options: {
+            emitErrors: true,
+            failOnHint: true
+          }
+        },
         exclude: /node_modules/
       },
       {
