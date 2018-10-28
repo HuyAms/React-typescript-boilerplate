@@ -1,10 +1,11 @@
 import * as React from "react";
-import "./index.scss";
+
+import img from "./assets/webpack.png";
 
 const App = () => {
   return (
     <div>
-      <p className="welcome-text">Welcome to dgfdg Huy</p>
+      <img src={img} alt="Webpack" />
     </div>
   );
 };
