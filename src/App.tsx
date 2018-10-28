@@ -1,12 +1,17 @@
 import * as React from "react";
-
-import img from "./assets/webpack.png";
+import AppLayout from "./layouts/AppLayout";
+import Home from "./containers/Home/Home";
+import About from "./containers/About/About";
+import {Route, Switch} from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <img src={img} alt="Webpack" />
-    </div>
+    <AppLayout>
+      <Switch>
+        <Route path="/about" component={About} />
+        <Route path="/" component={Home} />
+      </Switch>
+    </AppLayout>
   );
 };
 

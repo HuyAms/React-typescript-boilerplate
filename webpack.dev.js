@@ -14,6 +14,7 @@ module.exports = merge(common, {
     port: 8000,
     open: true,
     overlay: true,
+    historyApiFallback: true
   },
 
   output: {
