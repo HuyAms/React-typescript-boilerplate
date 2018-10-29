@@ -38,7 +38,12 @@ class Home extends React.Component<Props, any> {
       return <p>Error: {error}</p>;
     }
 
-    return <div>{users.map(this.renderUserList)}</div>;
+    return (
+      <div>
+        <h2>Home</h2>
+        {users.map(this.renderUserList)}
+      </div>
+    );
   }
 }
 

@@ -1,0 +1,28 @@
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #191919;
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+}
+
+.banner {
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 200px;
+    height: 200px;
+    margin-top: 35px;
+  }
+}
+
+.mainNav {
+  display: flex;
+}

@@ -30,6 +30,7 @@
     "redux-actions": "^2.6.3",
     "redux-saga": "^0.16.2",
     "reselect": "^4.0.0",
+    "sanitize.css": "^8.0.0",
     "sass-loader": "^7.1.0"
   },
   "devDependencies": {

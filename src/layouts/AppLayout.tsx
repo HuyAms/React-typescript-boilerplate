@@ -1,5 +1,6 @@
 import * as React from "react";
 import Header from "../components/Header/Header";
+import classes from "./AppLayout.scss";
 
 interface Props {
   children: any;
@@ -11,7 +12,7 @@ const appLayout = (props: Props) => {
       <header>
         <Header />
       </header>
-      <main>{props.children}</main>
+      <main className={classes.mainLayout}>{props.children}</main>
     </div>
   );
 };
