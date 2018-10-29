@@ -2,6 +2,8 @@ import * as React from "react";
 import {connect} from "react-redux";
 import * as userActions from "../../store/actions/user";
 import {User} from "../../models/user";
+import Button from "../../components/UI/Button/Button";
+import classes from "./Home.scss";
 
 interface Props {
   users: User[];
@@ -11,24 +13,8 @@ interface Props {
 }
 
 class Home extends React.Component<Props, any> {
-  componentDidMount() {
-    this.props.fetchUsers();
-  }
-
-  renderUserList(user: User) {
-    return (
-      <ul key={user.id}>
-        <li>Id: {user.id}</li>
-        <li>Username: {user.username}</li>
-        <li>Email: {user.email}</li>
-        <li>Phone: {user.phone}</li>
-        <li>Website: {user.website}</li>
-      </ul>
-    );
-  }
-
-  render() {
-    const {error, loading, users} = this.props;
+  renderUserList = (user: User) => {
+    const {error, loading} = this.props;
 
     if (loading) {
       return <p>Loading ...</p>;
@@ -39,8 +25,29 @@ class Home extends React.Component<Props, any> {
     }
 
     return (
+      <ul className={classes.user} key={user.id}>
+        <li>Id: {user.id}</li>
+        <li>Username: {user.username}</li>
+        <li>Email: {user.email}</li>
+        <li>Phone: {user.phone}</li>
+        <li>Website: {user.website}</li>
+      </ul>
+    );
+  };
+
+  handleButtonClicked = () => {
+    this.props.fetchUsers();
+  };
+
+  render() {
+    const {users} = this.props;
+
+    return (
       <div>
         <h2>Home Page</h2>
+        <Button className={classes.button} onClick={this.handleButtonClicked}>
+          Fetch Users
+        </Button>
         {users.map(this.renderUserList)}
       </div>
     );
