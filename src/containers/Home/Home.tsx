@@ -13,26 +13,28 @@ interface Props {
 }
 
 class Home extends React.Component<Props, any> {
-  renderUserList = (user: User) => {
-    const {error, loading} = this.props;
+  renderUserList = () => {
+    const {error, loading, users} = this.props;
 
     if (loading) {
-      return <p>Loading ...</p>;
+      return <p className={classes.loading}>Loading ...</p>;
     }
 
     if (error) {
-      return <p>Error: {error}</p>;
+      return <p className={classes.error}>Error: {error}</p>;
     }
 
-    return (
-      <ul className={classes.user} key={user.id}>
-        <li>Id: {user.id}</li>
-        <li>Username: {user.username}</li>
-        <li>Email: {user.email}</li>
-        <li>Phone: {user.phone}</li>
-        <li>Website: {user.website}</li>
-      </ul>
-    );
+    return users.map((user) => {
+      return (
+        <ul className={classes.user} key={user.id}>
+          <li>Id: {user.id}</li>
+          <li>Username: {user.username}</li>
+          <li>Email: {user.email}</li>
+          <li>Phone: {user.phone}</li>
+          <li>Website: {user.website}</li>
+        </ul>
+      );
+    });
   };
 
   handleButtonClicked = () => {
@@ -40,15 +42,13 @@ class Home extends React.Component<Props, any> {
   };
 
   render() {
-    const {users} = this.props;
-
     return (
       <div>
         <h2>Home Page</h2>
         <Button className={classes.button} onClick={this.handleButtonClicked}>
           Fetch Users
         </Button>
-        {users.map(this.renderUserList)}
+        {this.renderUserList()}
       </div>
     );
   }
