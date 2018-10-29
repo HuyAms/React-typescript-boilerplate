@@ -2,7 +2,7 @@ import {fromJS} from "immutable";
 import {User} from "../../models/user";
 import {userActionType} from "../actions/actionTypes";
 
-interface State {
+export interface State {
   users: User[];
   loading: boolean;
   error: string | null;
