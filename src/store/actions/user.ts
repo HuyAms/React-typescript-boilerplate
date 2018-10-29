@@ -7,7 +7,7 @@ export const fetchUsersStart = () => {
   };
 };
 
-export const fetchUsersSuccess = (users: User) => {
+export const fetchUsersSuccess = (users: User[]) => {
   return {
     type: userActionType.FEFETCH_USER_SUCCESS,
     users,
