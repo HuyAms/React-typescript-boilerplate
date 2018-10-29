@@ -1,0 +1,12 @@
+.navigationItem a:link,
+.navigationItem a:visited {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.navigationItem a:hover,
+.navigationItem a.active {
+  color: white;
+  text-decoration: underline;
+}
