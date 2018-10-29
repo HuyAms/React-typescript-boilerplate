@@ -2,6 +2,7 @@ import * as React from "react";
 import AppLayout from "./layouts/AppLayout";
 import Home from "./containers/Home/Home";
 import About from "./containers/About/About";
+import {hot} from "react-hot-loader";
 import {Route, Switch} from "react-router-dom";
 
 const App = () => {
@@ -15,4 +16,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default hot(module)(App);

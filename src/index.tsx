@@ -37,14 +37,4 @@ const app = (
   </Provider>
 );
 
-const render = () => {
-  ReactDOM.render(app, MOUNT_NODE);
-};
-
-render();
-
-if (module.hot) {
-  module.hot.accept("./App", () => {
-    render();
-  });
-}
+ReactDOM.render(app, MOUNT_NODE);

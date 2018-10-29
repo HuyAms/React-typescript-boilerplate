@@ -7,7 +7,7 @@ const header = () => {
   return (
     <div className={classes.header}>
       <div className={classes.banner}>
-        <img src={reactImg} alt="React Icon" />
+        <img className={classes.logo} src={reactImg} alt="React Icon" />
         <h1>Welcome to React Typescript Boilerplate</h1>
       </div>
       <nav>

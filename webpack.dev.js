@@ -10,7 +10,7 @@ module.exports = merge(common, {
   devtool: 'source-map',
 
   devServer: {
-    contentBase: '../dist',
+    contentBase: './dist',
     port: 8000,
     open: true,
     overlay: true,
@@ -29,7 +29,7 @@ module.exports = merge(common, {
       {
         test: /\.(?:sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           {
             loader: 'css-loader',
             options: {
@@ -38,7 +38,7 @@ module.exports = merge(common, {
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
-          'sass-loader',
+          // 'sass-loader',
         ],
       },
     ],
