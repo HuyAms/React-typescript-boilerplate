@@ -7,6 +7,7 @@ import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose, combineReducers} from "redux";
 import "./index.scss";
 import "sanitize.css/sanitize.css";
+import "./i18n";
 import {rootSaga} from "./store/saga";
 import userReducer from "./store/reducer/user";
 declare const module: any;
