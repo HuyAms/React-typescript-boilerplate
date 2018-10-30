@@ -1,3 +1,13 @@
 {
-  "Welcome to React": "Welcome to React and react-i18next"
+  "common": {
+    "welcome": "Welcome to React Typescript Boilerplate",
+    "home": "Home",
+    "about": "About",
+    "en": "en",
+    "fi": "fi"
+  },
+  "button": {
+    "fetchUsers": "Fetch Users"
+  }
 }
+

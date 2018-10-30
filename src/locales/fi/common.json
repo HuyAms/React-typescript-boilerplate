@@ -1,0 +1,12 @@
+{
+  "common": {
+    "welcome": "Tervetuloa React Typescript Boilerplastille",
+    "home": "Kotisivu",
+    "about": "About",
+    "en": "en",
+    "fi": "fi"
+  },
+  "button": {
+    "fetchUsers": "Fetch Users in Finnish"
+  }
+}

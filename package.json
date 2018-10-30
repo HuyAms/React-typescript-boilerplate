@@ -49,6 +49,7 @@
     "@types/react": "^16.4.18",
     "@types/react-dom": "^16.0.9",
     "@types/react-hot-loader": "^4.1.0",
+    "@types/react-i18next": "^8.1.0",
     "@types/react-loadable": "^5.4.1",
     "@types/react-redux": "^6.0.9",
     "@types/react-router-dom": "^4.3.1",
