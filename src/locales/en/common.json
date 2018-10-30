@@ -1,0 +1,13 @@
+{
+  "common": {
+    "welcome": "Welcome to React Typescript Boilerplate",
+    "home": "Home",
+    "about": "About",
+    "en": "en",
+    "fi": "fi"
+  },
+  "button": {
+    "fetchUsers": "Fetch Users"
+  }
+}
+

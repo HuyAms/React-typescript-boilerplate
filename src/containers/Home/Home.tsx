@@ -4,8 +4,10 @@ import * as userActions from "../../store/actions/user";
 import {User} from "../../models/user";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Home.scss";
+import {withNamespaces, WithNamespaces} from "react-i18next";
 
-interface Props {
+interface Props extends WithNamespaces {
+  t: any;
   users: User[];
   loading: boolean;
   error: string;
@@ -42,11 +44,13 @@ class Home extends React.Component<Props, any> {
   };
 
   render() {
+    const {t} = this.props;
+
     return (
       <div>
-        <h2>Home Page</h2>
+        <h2>{t("common.home")}</h2>
         <Button className={classes.button} onClick={this.handleButtonClicked}>
-          Fetch Users
+          {t("button.fetchUsers")}
         </Button>
         {this.renderUserList()}
       </div>
@@ -70,7 +74,9 @@ const mapDispatchToProps = (dispatch: any) => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Home);
+export default withNamespaces(["common"])(
+  connect(
+    mapStateToProps,
+    mapDispatchToProps,
+  )(Home),
+);
