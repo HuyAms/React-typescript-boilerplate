@@ -5,11 +5,12 @@ import createSagaMiddleware from "redux-saga";
 import App from "./App";
 import {Provider} from "react-redux";
 import {createStore, applyMiddleware, compose, combineReducers} from "redux";
+import {I18nextProvider} from "react-i18next";
 import "./index.scss";
 import "sanitize.css/sanitize.css";
-import "./i18n";
 import {rootSaga} from "./store/saga";
 import userReducer from "./store/reducer/user";
+import i18n from "./i18n";
 declare const module: any;
 
 const MOUNT_NODE = document.getElementById("root");
@@ -31,11 +32,13 @@ const store = createStore(
 sagaMiddleware.run(rootSaga);
 
 const app = (
-  <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Provider>
+  <I18nextProvider i18n={i18n}>
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </I18nextProvider>
 );
 
 ReactDOM.render(app, MOUNT_NODE);

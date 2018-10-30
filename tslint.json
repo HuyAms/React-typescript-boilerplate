@@ -10,7 +10,8 @@
     "interface-name": false,
     "no-console": false,
     "no-submodule-imports": false,
-    "jsx-no-lambda": false
+    "jsx-no-lambda": false,
+    "no-implicit-dependencies": false
   },
   "rulesDirectory": []
 }
