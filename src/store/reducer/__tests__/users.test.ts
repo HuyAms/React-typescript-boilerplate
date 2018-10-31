@@ -1,11 +1,11 @@
 import {fromJS} from "immutable";
-import userReducer from "../user";
-import {State} from "../user";
+import userReducer from "../users";
+import {State} from "../users";
 import {
   fetchUsersStart,
   fetchUsersSuccess,
   fetchUsersFail,
-} from "../../actions/user";
+} from "../../actions/users";
 import {User} from "../../../models/user";
 
 describe("userReducer", () => {

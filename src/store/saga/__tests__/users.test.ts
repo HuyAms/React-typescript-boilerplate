@@ -1,6 +1,6 @@
 import {put} from "redux-saga/effects";
-import {fetchUsersSaga} from "../user";
-import * as actions from "../../actions/user";
+import {fetchUsersSaga} from "../users";
+import * as actions from "../../actions/users";
 import {User} from "../../../models/user";
 
 describe("fetchUserSaga", () => {

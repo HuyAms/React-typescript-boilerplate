@@ -1,7 +1,7 @@
 import createSagaMiddleware from "redux-saga";
 import {connectRouter, routerMiddleware} from "connected-react-router";
 import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import userReducer from "./store/reducer/user";
+import userReducer from "./store/reducer/users";
 import {rootSaga} from "./store/saga";
 
 const sagaMiddleware = createSagaMiddleware();
@@ -23,7 +23,7 @@ const configureStore = (initialState: any, history: any) => {
       : compose;
 
   const rootReducer = combineReducers({
-    user: userReducer,
+    users: userReducer,
   });
 
   const store = createStore(

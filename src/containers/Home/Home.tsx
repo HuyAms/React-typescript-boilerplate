@@ -1,6 +1,6 @@
 import * as React from "react";
 import {connect} from "react-redux";
-import * as userActions from "../../store/actions/user";
+import * as userActions from "../../store/actions/users";
 import {User} from "../../models/user";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Home.scss";
@@ -59,12 +59,12 @@ class Home extends React.Component<Props, any> {
 }
 
 const mapStateToProps = (state: any) => {
-  const {user} = state;
+  const {users} = state;
 
   return {
-    users: user.get("users"),
-    loading: user.get("loading"),
-    error: user.get("error"),
+    users: users.get("users"),
+    loading: users.get("loading"),
+    error: users.get("error"),
   };
 };
 

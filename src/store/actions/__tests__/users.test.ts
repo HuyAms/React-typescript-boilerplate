@@ -1,5 +1,5 @@
 import {userActionType} from "../actionTypes";
-import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../user";
+import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../users";
 import {User} from "../../../models/user";
 
 describe("User Actions", () => {

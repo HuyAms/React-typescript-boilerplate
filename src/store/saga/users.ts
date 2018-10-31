@@ -1,5 +1,5 @@
 import {put, call} from "redux-saga/effects";
-import * as userAction from "../actions/user";
+import * as userAction from "../actions/users";
 import axios from "../../utils/axious";
 
 export function* fetchUsersSaga() {
