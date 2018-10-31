@@ -1,13 +1,19 @@
 import createSagaMiddleware from "redux-saga";
-import {connectRouter, routerMiddleware} from "connected-react-router";
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
-import userReducer from "./store/reducer/user";
+import {routerMiddleware, connectRouter} from "connected-react-router/immutable";
+import {applyMiddleware, compose, createStore} from "redux";
+import createReducer from "./store/reducer";
 import {rootSaga} from "./store/saga";
+import {createLogger} from "redux-logger";
 
 const sagaMiddleware = createSagaMiddleware();
 
 const configureStore = (initialState: any, history: any) => {
   const middlewares = [sagaMiddleware, routerMiddleware(history)];
+
+  if (process.env.NODE_ENV !== "production") {
+    const logger = createLogger();
+    middlewares.push(logger);
+  }
 
   const enhancers = [applyMiddleware(...middlewares)];
 
@@ -22,15 +28,9 @@ const configureStore = (initialState: any, history: any) => {
         })
       : compose;
 
-  const rootReducer = combineReducers({
-    user: userReducer,
-  });
+  const rootReducer = createReducer();
 
-  const store = createStore(
-    connectRouter(history)(rootReducer),
-    initialState,
-    composeEnhancers(applyMiddleware(sagaMiddleware)),
-  );
+  const store = createStore(connectRouter(history)(rootReducer), initialState, composeEnhancers(...enhancers));
 
   sagaMiddleware.run(rootSaga);
 

@@ -17,3 +17,7 @@ declare module "i18next-resource-store-loader*" {
   const contents: any;
   export = contents;
 }
+
+declare module "connected-react-router/immutable" {
+  export * from "connected-react-router";
+}

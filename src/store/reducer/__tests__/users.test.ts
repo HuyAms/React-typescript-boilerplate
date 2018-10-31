@@ -1,19 +1,11 @@
 import {fromJS} from "immutable";
-import userReducer from "../user";
-import {State} from "../user";
-import {
-  fetchUsersStart,
-  fetchUsersSuccess,
-  fetchUsersFail,
-} from "../../actions/user";
-import {User} from "../../../models/user";
+import userReducer from "../users";
+import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../../actions/users";
+import {IUser} from "../../../models/User";
+import Users from "../../../models/Users";
 
 describe("userReducer", () => {
-  let initialState: State = {
-    users: [],
-    loading: false,
-    error: null,
-  };
+  const initialState = new Users();
 
   let state: any;
 
@@ -27,12 +19,12 @@ describe("userReducer", () => {
   });
 
   it("should handle fetchUserStartAction correctly", () => {
-    const expectedResult = state.set("error", null).set("loading", true);
+    const expectedResult = state.set("error", null).set("isLoading", true);
     expect(userReducer(state, fetchUsersStart())).toEqual(expectedResult);
   });
 
   it("should handle fetchUsersSuccess correctly", () => {
-    const testUsers: User[] = [
+    const testUsers: IUser[] = [
       {
         id: 1,
         username: "Bret",
@@ -42,17 +34,13 @@ describe("userReducer", () => {
       },
     ];
 
-    const expectedResult = state.set("users", testUsers).set("loading", false);
-    expect(
-      expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(
-        expectedResult,
-      ),
-    );
+    const expectedResult = state.set("users", testUsers).set("isLoading", false);
+    expect(expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(expectedResult));
   });
 
   it("should handle fetchUsersFail correctly", () => {
     const error = "Test error";
-    const expectedResult = state.set("error", error).set("loading", false);
+    const expectedResult = state.set("error", error).set("isLoading", false);
     expect(userReducer(state, fetchUsersFail(error))).toEqual(expectedResult);
   });
 });

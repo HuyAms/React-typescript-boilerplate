@@ -1,13 +1,13 @@
 import * as React from "react";
 import classes from "./Button.scss";
 
-interface Props {
+interface IProps {
   children: string;
   className?: string;
   onClick: any;
 }
 
-const button = (props: Props) => {
+const button = (props: IProps) => {
   const {children, onClick, className} = props;
 
   const buttonClasses = [classes.button, className];

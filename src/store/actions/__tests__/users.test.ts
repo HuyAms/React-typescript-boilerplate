@@ -1,6 +1,6 @@
 import {userActionType} from "../actionTypes";
-import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../user";
-import {User} from "../../../models/user";
+import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../users";
+import {IUser} from "../../../models/User";
 
 describe("User Actions", () => {
   describe("fetchUsersStart", () => {
@@ -14,7 +14,7 @@ describe("User Actions", () => {
   });
 
   describe("fetchUsersSuccess", () => {
-    const testUsers: User[] = [
+    const testUsers: IUser[] = [
       {
         id: 1,
         username: "Bret",

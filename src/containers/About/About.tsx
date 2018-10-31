@@ -1,11 +1,11 @@
 import * as React from "react";
 import {withNamespaces, WithNamespaces} from "react-i18next";
 
-interface Props extends WithNamespaces {
+interface IProps extends WithNamespaces {
   t: any;
 }
 
-class About extends React.Component<Props, any> {
+class About extends React.Component<IProps, any> {
   render() {
     return (
       <div>

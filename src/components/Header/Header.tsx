@@ -9,11 +9,11 @@ const changeLanguage = (e: any) => {
   i18n.changeLanguage(e.target.value);
 };
 
-interface Props extends WithNamespaces {
+interface IProps extends WithNamespaces {
   t: any;
 }
 
-const header = (props: Props) => {
+const header = (props: IProps) => {
   const {t} = props;
 
   return (

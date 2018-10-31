@@ -2,11 +2,11 @@ import * as React from "react";
 import Header from "../components/Header/Header";
 import classes from "./AppLayout.scss";
 
-interface Props {
+interface IProps {
   children: any;
 }
 
-const appLayout = (props: Props) => {
+const appLayout = (props: IProps) => {
   return (
     <div>
       <header>
