@@ -7,16 +7,15 @@ import "sanitize.css/sanitize.css";
 import "./index.scss";
 import {createBrowserHistory} from "history";
 import {ConnectedRouter} from "connected-react-router/immutable";
-import {Map} from "immutable";
-
 import i18n from "./i18n";
 import configureStore from "./configureStore";
+import State from "./models/State";
 
 const MOUNT_NODE = document.getElementById("root");
 
 const history = createBrowserHistory();
 
-const initialState = Map();
+const initialState = State();
 
 const store = configureStore(initialState, history);
 

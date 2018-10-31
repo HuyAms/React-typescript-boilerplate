@@ -1,20 +1,10 @@
-import {fromJS} from "immutable";
-import {IUser} from "../../models/User";
+import Users from "../../models/Users";
 import {userActionType} from "../actions/actionTypes";
+import {List} from "immutable";
 
-export interface IState {
-  users: IUser[];
-  loading: boolean;
-  error: string | null;
-}
+const initialState = new Users();
 
-const initialState: IState = {
-  users: [],
-  loading: false,
-  error: null,
-};
-
-const reducer = (state = fromJS(initialState), action: any) => {
+const reducer = (state = initialState, action: any) => {
   switch (action.type) {
     case userActionType.FETCH_USER_START:
       return fetchUsersStart(state, action);
@@ -28,15 +18,15 @@ const reducer = (state = fromJS(initialState), action: any) => {
 };
 
 const fetchUsersStart = (state: any, action: any) => {
-  return state.set("error", null).set("loading", true);
+  return state.set("error", null).set("isLoading", true);
 };
 
 const fetchUsersSuccess = (state: any, action: any) => {
-  return state.set("users", action.users).set("loading", false);
+  return state.set("users", List(action.users)).set("isLoading", false);
 };
 
 const fetchUsersFail = (state: any, action: any) => {
-  return state.set("error", action.error).set("loading", false);
+  return state.set("error", action.error).set("isLoading", false);
 };
 
 export default reducer;

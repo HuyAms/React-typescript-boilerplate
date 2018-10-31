@@ -10,7 +10,6 @@
     "moduleResolution": "node",
     "rootDir": "src",
     "isolatedModules": true,
-    "strict": true,
     "esModuleInterop": true
   },
   "include": [

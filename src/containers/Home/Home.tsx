@@ -1,24 +1,21 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import * as userActions from "../../store/actions/users";
-import {User} from "../../models/User";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Home.scss";
 import {withNamespaces, WithNamespaces} from "react-i18next";
 
 interface IProps extends WithNamespaces {
-  t: any;
-  users: User[];
-  loading: boolean;
-  error: string;
-  fetchUsers: any;
+  t;
+  users;
+  fetchUsers;
 }
 
 class Home extends React.Component<IProps, any> {
   renderUserList = () => {
-    const {error, loading, users} = this.props;
+    const {error, isLoading, users} = this.props.users;
 
-    if (loading) {
+    if (isLoading) {
       return <p className={classes.loading}>Loading ...</p>;
     }
 
@@ -26,17 +23,20 @@ class Home extends React.Component<IProps, any> {
       return <p className={classes.error}>Error: {error}</p>;
     }
 
-    return users.map((user) => {
-      return (
-        <ul className={classes.user} key={user.id}>
-          <li>Id: {user.id}</li>
-          <li>Username: {user.username}</li>
-          <li>Email: {user.email}</li>
-          <li>Phone: {user.phone}</li>
-          <li>Website: {user.website}</li>
-        </ul>
-      );
-    });
+    return (
+      users &&
+      users.toJS().map((user) => {
+        return (
+          <ul className={classes.user} key={user.id}>
+            <li>Id: {user.id}</li>
+            <li>Username: {user.username}</li>
+            <li>Email: {user.email}</li>
+            <li>Phone: {user.phone}</li>
+            <li>Website: {user.website}</li>
+          </ul>
+        );
+      })
+    );
   };
 
   handleButtonClicked = () => {
@@ -58,13 +58,10 @@ class Home extends React.Component<IProps, any> {
   }
 }
 
-const mapStateToProps = (state: any) => {
+const mapStateToProps = (state) => {
   const users = state.get("users");
-
   return {
-    users: users.get("users"),
-    loading: users.get("loading"),
-    error: users.get("error"),
+    users,
   };
 };
 
