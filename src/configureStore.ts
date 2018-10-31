@@ -1,6 +1,7 @@
 import createSagaMiddleware from "redux-saga";
-import {connectRouter, routerMiddleware} from "connected-react-router";
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import {routerMiddleware, connectRouter} from "connected-react-router/immutable";
+import {applyMiddleware, compose, createStore} from "redux";
+import {combineReducers} from "redux-immutable";
 import userReducer from "./store/reducer/users";
 import {rootSaga} from "./store/saga";
 
@@ -26,11 +27,7 @@ const configureStore = (initialState: any, history: any) => {
     users: userReducer,
   });
 
-  const store = createStore(
-    connectRouter(history)(rootReducer),
-    initialState,
-    composeEnhancers(applyMiddleware(sagaMiddleware)),
-  );
+  const store = createStore(connectRouter(history)(rootReducer), initialState, composeEnhancers(...enhancers));
 
   sagaMiddleware.run(rootSaga);
 

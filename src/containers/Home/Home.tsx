@@ -59,7 +59,7 @@ class Home extends React.Component<Props, any> {
 }
 
 const mapStateToProps = (state: any) => {
-  const {users} = state;
+  const users = state.get("users");
 
   return {
     users: users.get("users"),

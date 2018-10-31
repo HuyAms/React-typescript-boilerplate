@@ -5,9 +5,9 @@ import {Provider} from "react-redux";
 import {I18nextProvider} from "react-i18next";
 import "sanitize.css/sanitize.css";
 import "./index.scss";
-
 import {createBrowserHistory} from "history";
-import {ConnectedRouter} from "connected-react-router";
+import {ConnectedRouter} from "connected-react-router/immutable";
+import {Map} from "immutable";
 
 import i18n from "./i18n";
 import configureStore from "./configureStore";
@@ -16,7 +16,7 @@ const MOUNT_NODE = document.getElementById("root");
 
 const history = createBrowserHistory();
 
-const initialState = {};
+const initialState = Map();
 
 const store = configureStore(initialState, history);
 
