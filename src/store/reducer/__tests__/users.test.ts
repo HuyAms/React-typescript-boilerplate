@@ -1,4 +1,4 @@
-import {fromJS} from "immutable";
+import {fromJS, List} from "immutable";
 import userReducer from "../users";
 import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../../actions/users";
 import {IUser} from "../../../models/User";
@@ -34,8 +34,8 @@ describe("userReducer", () => {
       },
     ];
 
-    const expectedResult = state.set("users", testUsers).set("isLoading", false);
-    expect(expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(expectedResult));
+    const expectedResult = state.set("users", List(testUsers)).set("isLoading", false);
+    expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(expectedResult);
   });
 
   it("should handle fetchUsersFail correctly", () => {
