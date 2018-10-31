@@ -1,14 +1,14 @@
 import {fromJS} from "immutable";
-import {User} from "../../models/user";
+import {IUser} from "../../models/IUser";
 import {userActionType} from "../actions/actionTypes";
 
-export interface State {
-  users: User[];
+export interface IState {
+  users: IUser[];
   loading: boolean;
   error: string | null;
 }
 
-const initialState: State = {
+const initialState: IState = {
   users: [],
   loading: false,
   error: null,

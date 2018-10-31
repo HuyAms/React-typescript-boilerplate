@@ -1,7 +1,7 @@
 import {put} from "redux-saga/effects";
 import {fetchUsersSaga} from "../users";
 import * as actions from "../../actions/users";
-import {User} from "../../../models/user";
+import {IUser} from "../../../models/IUser";
 
 describe("fetchUserSaga", () => {
   let fetchUserGenerator: any;
@@ -15,7 +15,7 @@ describe("fetchUserSaga", () => {
 
   it("should dispatch the fetchUsersSuccess action if it requests the data successfully", () => {
     interface Response {
-      data: User[];
+      data: IUser[];
     }
 
     const response: Response = {
@@ -23,9 +23,7 @@ describe("fetchUserSaga", () => {
     };
 
     const putDescriptor = fetchUserGenerator.next(response).value;
-    expect(putDescriptor).toEqual(
-      put(actions.fetchUsersSuccess(response.data)),
-    );
+    expect(putDescriptor).toEqual(put(actions.fetchUsersSuccess(response.data)));
   });
 
   it("should dispatch the fetchUsersFail action if the response errors", () => {

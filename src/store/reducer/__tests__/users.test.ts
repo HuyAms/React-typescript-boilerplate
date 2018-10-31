@@ -1,15 +1,11 @@
 import {fromJS} from "immutable";
 import userReducer from "../users";
-import {State} from "../users";
-import {
-  fetchUsersStart,
-  fetchUsersSuccess,
-  fetchUsersFail,
-} from "../../actions/users";
-import {User} from "../../../models/user";
+import {IState} from "../users";
+import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../../actions/users";
+import {IUser} from "../../../models/IUser";
 
 describe("userReducer", () => {
-  let initialState: State = {
+  const initialState: IState = {
     users: [],
     loading: false,
     error: null,
@@ -32,7 +28,7 @@ describe("userReducer", () => {
   });
 
   it("should handle fetchUsersSuccess correctly", () => {
-    const testUsers: User[] = [
+    const testUsers: IUser[] = [
       {
         id: 1,
         username: "Bret",
@@ -43,11 +39,7 @@ describe("userReducer", () => {
     ];
 
     const expectedResult = state.set("users", testUsers).set("loading", false);
-    expect(
-      expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(
-        expectedResult,
-      ),
-    );
+    expect(expect(userReducer(state, fetchUsersSuccess(testUsers))).toEqual(expectedResult));
   });
 
   it("should handle fetchUsersFail correctly", () => {

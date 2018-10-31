@@ -7,7 +7,6 @@
     "quotemark": [true, "double"],
     "object-literal-sort-keys": false,
     "ordered-imports": false,
-    "interface-name": false,
     "no-console": false,
     "no-submodule-imports": false,
     "jsx-no-lambda": false,

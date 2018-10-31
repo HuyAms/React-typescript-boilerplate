@@ -1,20 +1,20 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import * as userActions from "../../store/actions/users";
-import {User} from "../../models/user";
+import {IUser} from "../../models/IUser";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Home.scss";
 import {withNamespaces, WithNamespaces} from "react-i18next";
 
-interface Props extends WithNamespaces {
+interface IProps extends WithNamespaces {
   t: any;
-  users: User[];
+  users: IUser[];
   loading: boolean;
   error: string;
   fetchUsers: any;
 }
 
-class Home extends React.Component<Props, any> {
+class Home extends React.Component<IProps, any> {
   renderUserList = () => {
     const {error, loading, users} = this.props;
 
