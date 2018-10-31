@@ -1,8 +1,8 @@
 import {userActionType} from "../actionTypes";
 import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../users";
-import {IUser} from "../../../models/IUser";
+import {IUser} from "../../../models/User";
 
-describe("IUser Actions", () => {
+describe("User Actions", () => {
   describe("fetchUsersStart", () => {
     it("should return the correct type", () => {
       const expectedResult = {

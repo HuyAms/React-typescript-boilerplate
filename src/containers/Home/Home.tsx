@@ -1,14 +1,14 @@
 import * as React from "react";
 import {connect} from "react-redux";
 import * as userActions from "../../store/actions/users";
-import {IUser} from "../../models/IUser";
+import {User} from "../../models/User";
 import Button from "../../components/UI/Button/Button";
 import classes from "./Home.scss";
 import {withNamespaces, WithNamespaces} from "react-i18next";
 
 interface IProps extends WithNamespaces {
   t: any;
-  users: IUser[];
+  users: User[];
   loading: boolean;
   error: string;
   fetchUsers: any;

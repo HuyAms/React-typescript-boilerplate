@@ -2,7 +2,7 @@ import {fromJS} from "immutable";
 import userReducer from "../users";
 import {IState} from "../users";
 import {fetchUsersStart, fetchUsersSuccess, fetchUsersFail} from "../../actions/users";
-import {IUser} from "../../../models/IUser";
+import {IUser} from "../../../models/User";
 
 describe("userReducer", () => {
   const initialState: IState = {

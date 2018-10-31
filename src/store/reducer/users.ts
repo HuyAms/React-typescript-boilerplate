@@ -1,5 +1,5 @@
 import {fromJS} from "immutable";
-import {IUser} from "../../models/IUser";
+import {IUser} from "../../models/User";
 import {userActionType} from "../actions/actionTypes";
 
 export interface IState {

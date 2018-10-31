@@ -1,5 +1,5 @@
 import {userActionType} from "./actionTypes";
-import {IUser} from "../../models/IUser";
+import {IUser} from "../../models/User";
 
 export const fetchUsersStart = () => {
   return {
