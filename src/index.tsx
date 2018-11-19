@@ -4,7 +4,7 @@ import App from "./App";
 import {Provider} from "react-redux";
 import {I18nextProvider} from "react-i18next";
 import "sanitize.css/sanitize.css";
-import "./index.scss";
+import "./style/index.scss";
 import {createBrowserHistory} from "history";
 import {ConnectedRouter} from "connected-react-router/immutable";
 import i18n from "./i18n";
