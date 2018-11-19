@@ -38,7 +38,7 @@ module.exports = merge(common, {
               localIdentName: '[path][name]__[local]--[hash:base64:5]',
             },
           },
-          // 'sass-loader',
+          'sass-loader',
         ],
       },
     ],

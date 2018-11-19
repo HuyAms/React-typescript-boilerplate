@@ -18,19 +18,19 @@ const header = (props: IProps) => {
 
   return (
     <div className={classes.header}>
-      <div className={classes.banner}>
-        <img className={classes.logo} src={reactImg} alt="React Icon" />
+      <div className={classes.header__banner}>
+        <img className={classes.header__logo} src={reactImg} alt="React Icon" />
         <h1>{t("common.welcome")}</h1>
       </div>
       <nav>
-        <ul className={classes.mainNav}>
+        <ul className={classes.header__nav}>
           <NavigationItem link="/" exact={true}>
             {t("common.home")}
           </NavigationItem>
           <NavigationItem link="/about">{t("common.about")}</NavigationItem>
         </ul>
       </nav>
-      <div className={classes.localize}>
+      <div className={classes.header__localize}>
         <select onChange={changeLanguage}>
           <option value="en">{t("common.en")}</option>
           <option value="fi">{t("common.fi")}</option>

@@ -1,13 +1,17 @@
-.navigationItem a:link,
-.navigationItem a:visited {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  font-size: 1.2em;
+@import "../../../style/abstracts/variables";
+
+.navigationItem {
+
+  a:link, a:visited {
+    color: $color-white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1.8rem;
+  }
+
+  a:hover, a:active {
+    color: white;
+    text-decoration: underline;
+  }
 }
 
-.navigationItem a:hover,
-.navigationItem a.active {
-  color: white;
-  text-decoration: underline;
-}
