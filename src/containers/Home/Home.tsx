@@ -46,8 +46,6 @@ class Home extends React.Component<IProps, any> {
   render() {
     const {t} = this.props;
 
-    throw new Error("This is error");
-
     return (
       <div>
         <h2>{t("common.home")}</h2>
