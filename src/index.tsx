@@ -10,6 +10,7 @@ import {ConnectedRouter} from "connected-react-router/immutable";
 import i18n from "./i18n";
 import configureStore from "./configureStore";
 import State from "./models/State";
+import ErrorBoundary from "./components/ErrorBoundary/ErrorBoundary";
 
 const MOUNT_NODE = document.getElementById("root");
 
@@ -23,7 +24,9 @@ const app = (
   <I18nextProvider i18n={i18n}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
-        <App />
+        <ErrorBoundary>
+          <App />
+        </ErrorBoundary>
       </ConnectedRouter>
     </Provider>
   </I18nextProvider>
